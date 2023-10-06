@@ -40,6 +40,11 @@ primary key (`id`) using btree,
 unique key `un_team_vcode_inx` (`team_id`,`resource_name`) using btree
 ) engine=innodb auto_increment=100000 default charset=utf8mb4 collate=utf8mb4_general_ci;
 
+alter table `t_resource`
+    add column `resource_path` varchar(255) default null,
+    add column `connector_required_options` text default null,
+    add column `connector_optional_options` text default null;
+
 alter table `t_flink_sql`
     add column `team_resource` varchar(64) default null;
 
